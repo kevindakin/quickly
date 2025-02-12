@@ -932,13 +932,16 @@ function splitLines() {
 // FUNCTION INITS
 //
 
+document.addEventListener("DOMContentLoaded", () => {
+  heroLoader();
+});
+
 smoothScroll();
 mobileMenu();
 megamenuOpen();
 navScroll();
 accordion();
 copyright();
-heroLoader();
 imageReveal();
 logoReveal();
 scaleOut();
