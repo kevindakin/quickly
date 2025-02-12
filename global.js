@@ -932,26 +932,32 @@ function splitLines() {
 // FUNCTION INITS
 //
 
-smoothScroll();
-mobileMenu();
-megamenuOpen();
-navScroll();
-accordion();
-copyright();
-imageReveal();
-logoReveal();
-scaleOut();
-fadeUp();
-fadeLeft();
-fadeIn();
-borderFade();
-ctaRow();
-
 requestAnimationFrame(() => {
   requestAnimationFrame(() => {
-    heroLoader();
+    // Ensure text is split before animations run
     splitText();
     splitWords();
     splitLines();
+
+    // Run the page loader animation
+    heroLoader();
   });
+});
+
+// Run all functional scripts once the DOM is ready
+requestAnimationFrame(() => {
+  smoothScroll();
+  mobileMenu();
+  megamenuOpen();
+  navScroll();
+  accordion();
+  copyright();
+  imageReveal();
+  logoReveal();
+  scaleOut();
+  fadeUp();
+  fadeLeft();
+  fadeIn();
+  borderFade();
+  ctaRow();
 });
