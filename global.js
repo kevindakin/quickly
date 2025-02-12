@@ -3,79 +3,6 @@ const durationBase = 0.6;
 const durationSlow = 0.9;
 const easeBase = "power2.inOut";
 
-function smoothScroll() {
-  let lenis;
-  if (Webflow.env("editor") === undefined) {
-    lenis = new Lenis({
-      lerp: 0.3,
-      wheelMultiplier: 0.7,
-      gestureOrientation: "vertical",
-      normalizeWheel: false,
-      smoothTouch: false,
-    });
-
-    // Create a MutationObserver to watch for the dropdown being added to DOM
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.classList?.contains("iti--container")) {
-            // Stop Lenis when dropdown opens
-            lenis.stop();
-
-            // Add event listener to document to detect clicks outside dropdown
-            const handleClickOutside = (e) => {
-              if (!node.contains(e.target)) {
-                lenis.start();
-                document.removeEventListener("click", handleClickOutside);
-              }
-            };
-
-            document.addEventListener("click", handleClickOutside);
-          }
-        });
-      });
-    });
-
-    // Start observing the document with the configured parameters
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }
-
-  $("[data-lenis-start]").on("click", function () {
-    lenis.start();
-  });
-
-  $("[data-lenis-stop]").on("click", function () {
-    lenis.stop();
-  });
-
-  $("[data-lenis-toggle]").on("click", function () {
-    $(this).toggleClass("stop-scroll");
-    if ($(this).hasClass("stop-scroll")) {
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
-  });
-
-  lenis.on("scroll", (e) => {
-    const menu = document.querySelector(".nav_content");
-    if (menu.classList.contains("is-open")) {
-      e.preventDefault = false;
-    } else {
-      e.preventDefault = true;
-    }
-  });
-}
-
 function disableScrolling() {
   document.body.classList.add("no-scroll");
   lenis.stop();
@@ -946,7 +873,6 @@ requestAnimationFrame(() => {
 
 // Run all functional scripts once the DOM is ready
 requestAnimationFrame(() => {
-  smoothScroll();
   mobileMenu();
   megamenuOpen();
   navScroll();
