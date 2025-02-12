@@ -932,12 +932,6 @@ function splitLines() {
 // FUNCTION INITS
 //
 
-requestAnimationFrame(() => {
-  requestAnimationFrame(() => {
-    heroLoader();
-  });
-});
-
 smoothScroll();
 mobileMenu();
 megamenuOpen();
@@ -952,6 +946,12 @@ fadeLeft();
 fadeIn();
 borderFade();
 ctaRow();
-splitText();
-splitWords();
-splitLines();
+
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    heroLoader();
+    splitText();
+    splitWords();
+    splitLines();
+  });
+});
