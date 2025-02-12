@@ -932,23 +932,26 @@ function splitLines() {
 // FUNCTION INITS
 //
 
-document.addEventListener("DOMContentLoaded", () => {
-  heroLoader();
-  smoothScroll();
-  mobileMenu();
-  megamenuOpen();
-  navScroll();
-  accordion();
-  copyright();
-  imageReveal();
-  logoReveal();
-  scaleOut();
-  fadeUp();
-  fadeLeft();
-  fadeIn();
-  borderFade();
-  ctaRow();
-  splitText();
-  splitWords();
-  splitLines();
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    heroLoader();
+  });
 });
+
+smoothScroll();
+mobileMenu();
+megamenuOpen();
+navScroll();
+accordion();
+copyright();
+imageReveal();
+logoReveal();
+scaleOut();
+fadeUp();
+fadeLeft();
+fadeIn();
+borderFade();
+ctaRow();
+splitText();
+splitWords();
+splitLines();
