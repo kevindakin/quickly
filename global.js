@@ -934,22 +934,21 @@ function splitLines() {
 
 document.addEventListener("DOMContentLoaded", () => {
   heroLoader();
+  smoothScroll();
+  mobileMenu();
+  megamenuOpen();
+  navScroll();
+  accordion();
+  copyright();
+  imageReveal();
+  logoReveal();
+  scaleOut();
+  fadeUp();
+  fadeLeft();
+  fadeIn();
+  borderFade();
+  ctaRow();
+  splitText();
+  splitWords();
+  splitLines();
 });
-
-smoothScroll();
-mobileMenu();
-megamenuOpen();
-navScroll();
-accordion();
-copyright();
-imageReveal();
-logoReveal();
-scaleOut();
-fadeUp();
-fadeLeft();
-fadeIn();
-borderFade();
-ctaRow();
-splitText();
-splitWords();
-splitLines();
