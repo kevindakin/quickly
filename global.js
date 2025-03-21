@@ -19,6 +19,10 @@ function mobileMenu() {
   const button = nav.querySelector('[data-menu="hamburger"]');
   const overlay = nav.querySelector(".nav_overlay");
 
+  if (!menu) {
+    return;
+  }
+
   const lineTop = button.children[0];
   const lineMiddle = button.children[1];
   const lineBottom = button.children[2];
@@ -87,6 +91,10 @@ function mobileMenu() {
 function megamenuOpen() {
   const nav = document.querySelector('[data-menu="nav"]');
   const links = nav.querySelectorAll('[data-menu="link"]');
+
+  if (!links) {
+    return;
+  }
 
   const isTouchDevice = () => window.matchMedia("(pointer: coarse)").matches; // Detect touch devices
 
