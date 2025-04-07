@@ -1,34 +1,41 @@
 function csGrid() {
-    // Select all grid items
-    const items = document.querySelectorAll(".cs-grid_item");
-  
-    // Get CTA elements
-    const cta1 = document.querySelector('[data-cs-grid="cta-1"]');
-    const cta2 = document.querySelector('[data-cs-grid="cta-2"]');
-  
-    // Function to append static components
-    function appendStaticComponents() {
-      items.forEach((item, index) => {
-        // Using modulo to identify items in each set of 5
-        const position = (index + 1) % 5;
-  
-        if (position === 2 && cta1) {
-          // cta1.style.display = "flex";
-          item.appendChild(cta1);
-        }
-  
-        if (position === 4 && cta2) {
-          // cta2.style.display = "flex";
-          item.appendChild(cta2);
-        }
-      });
-    }
-  
-    // Initialize if CTAs exist
-    if (cta1 || cta2) {
-      appendStaticComponents();
-    }
+  const items = document.querySelectorAll(".cs-grid_item");
+
+  const cta1 = document.querySelector('[data-cs-grid="cta-1"]');
+  const cta2 = document.querySelector('[data-cs-grid="cta-2"]');
+  const cta3 = document.querySelector('[data-cs-grid="cta-3"]');
+  const cta4 = document.querySelector('[data-cs-grid="cta-4"]');
+  const cta5 = document.querySelector('[data-cs-grid="cta-5"]');
+
+  function appendStaticComponents() {
+    items.forEach((item, index) => {
+      if ((index + 1) % 5 === 2 && cta1) {
+        item.appendChild(cta1);
+      }
+
+      if ((index + 1) % 5 === 4 && cta2) {
+        item.appendChild(cta2);
+      }
+
+      if ((index + 1) % 6 === 0 && cta3) {
+        item.appendChild(cta3);
+      }
+
+      if ((index + 1) % 8 === 0 && cta4) {
+        item.appendChild(cta4);
+      }
+
+      if ((index + 1) % 10 === 0 && cta5) {
+        item.appendChild(cta5);
+      }
+    });
   }
+
+  // Optional: initialize only if any CTA exists
+  if (cta1 || cta2 || cta3 || cta4 || cta5) {
+    appendStaticComponents();
+  }
+}
   
   function cardReveal() {
     const cards = document.querySelectorAll(".customer-story_card");
